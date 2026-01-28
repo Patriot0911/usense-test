@@ -6,6 +6,7 @@ const GifCard = ({ gif }: { gif: any }) => {
       <Image
         src={gif.images.fixed_width.url}
         alt={gif.title}
+        unoptimized
         width={200}
         height={200}
         loading="lazy"
