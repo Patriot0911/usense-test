@@ -1,4 +1,23 @@
 .header {
-  background-color: var(--color-primary);
-  padding: 1rem 2rem;
+  position: relative;
+  height: 3rem;
+  .header-content-wrapper {
+    height: 3rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: var(--color-dark-400);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    a {
+      .logo-heading {
+        color: var(--color-text-primary);
+        font-size: 2rem;
+        font-weight: bolder;
+      }
+    }
+  }
 }
