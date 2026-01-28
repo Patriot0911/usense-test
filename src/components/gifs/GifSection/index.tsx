@@ -6,6 +6,7 @@ import Input from '@/components/ui/Input';
 import Skeleton from '@/components/gifs/Skeleton';
 import { useGifSearch } from '@/hooks/useGifSearch';
 import styles from './styles.module.scss';
+import { BiSearch } from 'react-icons/bi';
 
 const GifGrid = dynamic(() => import('../GifGrid'), {
   loading: () => <Skeleton />,
@@ -14,15 +15,15 @@ const GifGrid = dynamic(() => import('../GifGrid'), {
 
 const GifSection = () => {
   const [query, setQuery] = useState('');
-  const { data, isLoading, error, nextPage, prevPage, totalCount, pageSize } = useGifSearch(query);
+  const { data, isLoading, error, ...res } = useGifSearch(query);
 
   return (
     <section className={styles.section}>
-
       <div className={styles.searchWrapper}>
         <Input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          icon={BiSearch({ size: 24, })}
           placeholder="Search GIF..."
         />
       </div>
@@ -34,11 +35,17 @@ const GifSection = () => {
       )}
 
       <Suspense fallback={<Skeleton />}>
-        {isLoading
+        {(isLoading && data.length === 0)
           ? <Skeleton />
-          : <GifGrid data={data} />}
+          : (
+            <GifGrid
+              data={data}
+              isLoading={isLoading}
+              {...res}
+            />
+          )
+        }
       </Suspense>
-
     </section>
   );
 };

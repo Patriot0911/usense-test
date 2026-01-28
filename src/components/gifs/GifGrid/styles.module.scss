@@ -11,3 +11,19 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
+.sentinel {
+  height: 1px;
+}
+
+.loading {
+  padding: 1.5rem;
+  text-align: center;
+  opacity: .6;
+}
+
+.end {
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: .9rem;
+  opacity: .6;
+}

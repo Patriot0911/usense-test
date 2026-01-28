@@ -2,6 +2,7 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 1rem;
+  width: 100%;
 
   @media (min-width: 640px) {
     padding: 1.5rem;
@@ -18,6 +19,8 @@
   z-index: 20;
   background: var(--color-bg);
   padding-bottom: 1rem;
+  width: 100%;
+  display: flex;
 }
 
 .error {

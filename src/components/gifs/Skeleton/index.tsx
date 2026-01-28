@@ -1,14 +1,15 @@
+import SkeletonCard from './components/SkeletonCard';
+
+import styles from './styles.module.scss';
+
 const Skeleton = () => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-      {Array.from({ length: 8 }).map((_, i) => (
-        <div
-          key={i}
-          className="h-48 rounded bg-gray-300 animate-pulse"
-        />
+    <div className={styles.grid}>
+      {Array.from({ length: 20 }).map((_, i) => (
+        <SkeletonCard key={i} />
       ))}
     </div>
   );
-}
+};
 
 export default Skeleton;
