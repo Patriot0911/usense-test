@@ -1,18 +1,24 @@
+import type { IGifCardProps } from '@/types/gifs/gif-card';
 import Image from 'next/image';
 
-// todo: type gif
-const GifCard = ({ gif }: { gif: any }) => {
+import styles from './styles.module.scss';
+
+const GifCard = ({ gif, onClick }: IGifCardProps) => {
   return (
-    <div className="rounded overflow-hidden shadow hover:scale-105 transition">
+    <button
+      className={styles.card}
+      onClick={onClick}
+      aria-label={`Open ${gif.title}`}
+    >
       <Image
         src={gif.images.fixed_width.url}
         alt={gif.title}
+        width={gif.images.fixed_width.width}
+        height={gif.images.fixed_width.height}
         unoptimized
-        width={200}
-        height={200}
         loading="lazy"
       />
-    </div>
+    </button>
   );
 }
 

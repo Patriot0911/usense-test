@@ -1,13 +1,31 @@
-import GifCard from '../GifCard';
+'use client';
 
-// todo: type data
-// data: better gird for media
-export default function GifGrid({ data }: { data: any[] }) {
+import { useState } from 'react';
+import GifCard from '../GifCard';
+import GifModal from '../GifModal';
+
+import styles from './styles.module.scss';
+
+const GifGrid = ({ data }: { data: any[] }) => {
+  const [active, setActive] = useState<any | null>(null);
+
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-      {data.map(gif => (
-        <GifCard key={gif.id} gif={gif} />
-      ))}
-    </div>
+    <>
+      <div className={styles.grid}>
+        {data.map(gif => (
+          <GifCard
+            key={gif.id}
+            gif={gif}
+            onClick={() => setActive(gif)}
+          />
+        ))}
+      </div>
+
+      {active && (
+        <GifModal gif={active} onClose={() => setActive(null)} />
+      )}
+    </>
   );
 }
+
+export default GifGrid;

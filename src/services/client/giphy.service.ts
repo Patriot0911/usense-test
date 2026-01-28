@@ -1,11 +1,17 @@
+import type { IGifResponse } from '@/types/gifs/gif';
 import axios from 'axios';
-import { IGif } from '@/types/gif';
 
-// todo: add interseptor with Response extraction
-export async function searchGifs(q: string): Promise<IGif[]> {
+export async function fetchGifsByQuery(
+  q: string,
+  page: number = 1,
+  pageSize: number = 24,
+  signal?: AbortSignal
+): Promise<IGifResponse> {
   const { data } = await axios.get('/api/giphy', {
-    params: { q },
+    params: { q, page, pageSize },
+    signal,
+    timeout: 8000,
   });
 
-  return data.data;
+  return data;
 }
