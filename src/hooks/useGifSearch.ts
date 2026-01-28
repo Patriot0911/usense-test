@@ -49,7 +49,7 @@ export function useGifSearch(query: string) {
       );
       offset.current += pagination.count;
       setHasMore(offset.current < pagination.total_count);
-    } catch (e: any) {
+    } catch (e) {
       setError(resolveError(e));
     } finally {
       setLoading(false);

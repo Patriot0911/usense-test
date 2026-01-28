@@ -1,4 +1,6 @@
+import { IGifData } from './gif';
+
 export interface IGifModalProps {
-  gif: any;
+  gif: IGifData;
   onClose: () => void;
 }

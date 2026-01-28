@@ -21,14 +21,14 @@ export interface IGifData {
   rating: 'g' | 'pg' | 'pg-13' | 'r';
   images: {
     original: {
-      height: string;
-      width: string;
+      height: number;
+      width: number;
       url: string;
       webp: string;
     };
     downsized: {
-      height: string;
-      width: string;
+      height: number;
+      width: number;
       url: string;
     };
     fixed_width: {
