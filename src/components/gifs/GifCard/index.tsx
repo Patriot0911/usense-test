@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+// todo: type gif
 const GifCard = ({ gif }: { gif: any }) => {
   return (
     <div className="rounded overflow-hidden shadow hover:scale-105 transition">

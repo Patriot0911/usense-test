@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { searchGifs } from '@/services/client/giphy.service';
 
+// todo: add types
+// todo: better error handling
+// todo: make trending if no search query
 export function useGifSearch(query: string) {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);

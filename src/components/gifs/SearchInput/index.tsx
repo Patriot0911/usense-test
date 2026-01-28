@@ -1,5 +1,7 @@
 'use client';
 
+// todo: type props
+// props: better css
 const SearchInput = ({ value, onChange, }: { value: string; onChange: (v: string) => void; }) => {
   return (
     <input

@@ -1,5 +1,7 @@
 import styles from './styles.module.scss';
 
+// todo: header content
+// todo: change clrs
 const Header = () => {
   return (
     <header className={styles.header}>
